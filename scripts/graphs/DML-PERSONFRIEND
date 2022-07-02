@@ -1,0 +1,4 @@
+LOAD CSV WITH HEADERS FROM "file:///PERSONFRIEND.csv" AS csvLine
+MATCH (p1:PERSON {id: toInteger(csvLine.person_id)})
+MATCH (p2:PERSON {id: toInteger(csvLine.friend_id)})
+CREATE (p1)-[:IS_FRIEND_OF]->(p2)

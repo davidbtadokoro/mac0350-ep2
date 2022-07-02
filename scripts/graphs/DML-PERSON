@@ -1,0 +1,4 @@
+CREATE CONSTRAINT personIdConstraint FOR (person:PERSON) REQUIRE person.id IS UNIQUE
+
+LOAD CSV WITH HEADERS FROM "file:///PERSON.csv" AS csvLine
+CREATE (p:PERSON {id: toInteger(csvLine.id), first_name: csvLine.first_name, last_name: csvLine.last_name})
