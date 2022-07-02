@@ -1,0 +1,5 @@
+# Questão 4) Quem são o(a)s amigo(a)s do(a)s amigo(a)s de Alice?
+
+MATCH (alice:PERSON)-[:IS_FRIEND_OF]-()-[:IS_FRIEND_OF]-(result:PERSON)
+WHERE alice.first_name = "Alice"
+RETURN result
